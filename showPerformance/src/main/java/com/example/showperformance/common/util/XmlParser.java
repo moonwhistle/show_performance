@@ -1,5 +1,7 @@
 package com.example.showperformance.common.util;
 
+import com.example.showperformance.performance.infrastructure.dto.DetailPerformance;
+import com.example.showperformance.performance.infrastructure.dto.DetailPerformanceDbs;
 import com.example.showperformance.performance.infrastructure.dto.PerformanceDbs;
 import com.example.showperformance.performance.infrastructure.dto.Performance;
 import com.example.showperformance.rank.infrastructure.dto.Rankboxofs;
@@ -32,6 +34,57 @@ public class XmlParser {
                             )
                     )
                     .collect(Collectors.toList());
+
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static List<DetailPerformance> parseDetailPerformance(String xml) {
+        try {
+            JAXBContext context = JAXBContext.newInstance(DetailPerformanceDbs.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            DetailPerformanceDbs dbs = (DetailPerformanceDbs) unmarshaller.unmarshal(new StringReader(xml));
+
+            return dbs.getDbList()
+                    .stream()
+                    .map(detailPerformanceDb -> new DetailPerformance(
+                                    detailPerformanceDb.getMt20id(),
+                                    detailPerformanceDb.getPrfnm(),
+                                    detailPerformanceDb.getPrfpdfrom(),
+                                    detailPerformanceDb.getPrfpdto(),
+                                    detailPerformanceDb.getFcltynm(),
+                                    detailPerformanceDb.getPrfcast(),
+                                    detailPerformanceDb.getPrfcrew(),
+                                    detailPerformanceDb.getPrfruntime(),
+                                    detailPerformanceDb.getPrfage(),
+                                    detailPerformanceDb.getEntrpsnm(),
+                                    detailPerformanceDb.getEntrpsnmP(),
+                                    detailPerformanceDb.getEntrpsnmA(),
+                                    detailPerformanceDb.getEntrpsnmH(),
+                                    detailPerformanceDb.getEntrpsnmS(),
+                                    detailPerformanceDb.getPcseguidance(),
+                                    detailPerformanceDb.getPoster(),
+                                    detailPerformanceDb.getSty(),
+                                    detailPerformanceDb.getArea(),
+                                    detailPerformanceDb.getGenrenm(),
+                                    detailPerformanceDb.getOpenrun(),
+                                    detailPerformanceDb.getVisit(),
+                                    detailPerformanceDb.getChild(),
+                                    detailPerformanceDb.getDaehakro(),
+                                    detailPerformanceDb.getFestival(),
+                                    detailPerformanceDb.getMusicallicense(),
+                                    detailPerformanceDb.getMusicalcreate(),
+                                    detailPerformanceDb.getUpdatedate(),
+                                    detailPerformanceDb.getPrfstate(),
+                                    detailPerformanceDb.getMt10id(),
+                                    detailPerformanceDb.getDtguidance(),
+                                    detailPerformanceDb.getStyurls(),
+                                    detailPerformanceDb.getRelates()
+                            )
+                    )
+                    .collect(Collectors.toList());
+
 
         } catch (JAXBException e) {
             throw new RuntimeException(e);

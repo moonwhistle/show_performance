@@ -2,6 +2,7 @@ package com.example.showperformance.performance.service;
 
 import com.example.showperformance.performance.constant.AreaCode;
 import com.example.showperformance.performance.constant.GenreCode;
+import com.example.showperformance.performance.infrastructure.dto.DetailPerformance;
 import com.example.showperformance.performance.infrastructure.dto.Performance;
 import com.example.showperformance.performance.infrastructure.RestTemplatePerformanceRequester;
 import java.util.List;
@@ -43,6 +44,13 @@ public class PerformanceService {
                 PERFORMANCE_API_KEY,
                 page,
                 AreaCode.code(area)
+        );
+    }
+
+    public List<DetailPerformance> detailPerformance(String performanceId) {
+        return performanceRequester.requestDetailPerformance(
+                PERFORMANCE_API_KEY,
+                performanceId
         );
     }
 }
