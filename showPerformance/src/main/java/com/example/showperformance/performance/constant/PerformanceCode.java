@@ -1,5 +1,8 @@
 package com.example.showperformance.performance.constant;
 
+import com.example.showperformance.performance.exception.PerformanceErrorCode;
+import com.example.showperformance.performance.exception.PerformanceException;
+
 public enum PerformanceCode {
 
     THEATER("AAAA", "연극"),
@@ -22,6 +25,6 @@ public enum PerformanceCode {
                 return performanceCode.code;
             }
         }
-        return "ss";
+        throw new PerformanceException(PerformanceErrorCode.NOT_FOUND_GENRE);
     }
 }

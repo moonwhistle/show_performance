@@ -20,7 +20,7 @@ public class PerformanceController {
             @RequestParam String genre,
             @RequestParam int page
     ) {
-        List<Performance> performances =  performanceService.performance(page, genre);
+        List<Performance> performances =  performanceService.performances(page, genre);
         return ResponseEntity.ok(performances);
     }
 }
