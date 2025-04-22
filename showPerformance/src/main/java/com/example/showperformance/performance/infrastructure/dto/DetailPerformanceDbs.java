@@ -13,9 +13,8 @@ import lombok.NoArgsConstructor;
 @XmlAccessorType(XmlAccessType.FIELD)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class PerformanceDbs {
+public class DetailPerformanceDbs {
 
     @XmlElement(name = "db")
-    private List<PerformanceDb> dbList;
+    private List<DetailPerformanceDb> dbList;
 }
-

@@ -36,10 +36,6 @@ dependencies {
 
     // redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-
-    // MySQL
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-    runtimeOnly 'com.mysql:mysql-connector-j'
 }
 
 tasks.named('test') {
