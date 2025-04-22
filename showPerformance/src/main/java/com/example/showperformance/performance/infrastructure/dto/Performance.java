@@ -1,4 +1,4 @@
-package com.example.showperformance.performance.domain;
+package com.example.showperformance.performance.infrastructure.dto;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

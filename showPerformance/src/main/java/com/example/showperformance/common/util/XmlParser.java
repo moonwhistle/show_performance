@@ -1,9 +1,9 @@
 package com.example.showperformance.common.util;
 
-import com.example.showperformance.performance.controller.dto.xml.PerformanceDbs;
-import com.example.showperformance.performance.domain.Performance;
-import com.example.showperformance.rank.controller.dto.xml.Rankboxofs;
-import com.example.showperformance.rank.domain.Rank;
+import com.example.showperformance.performance.infrastructure.dto.PerformanceDbs;
+import com.example.showperformance.performance.infrastructure.dto.Performance;
+import com.example.showperformance.rank.infrastructure.dto.Rankboxofs;
+import com.example.showperformance.rank.infrastructure.dto.Rank;
 import java.io.StringReader;
 import java.util.List;
 import java.util.stream.Collectors;
