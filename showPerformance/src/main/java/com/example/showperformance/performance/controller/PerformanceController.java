@@ -1,5 +1,6 @@
 package com.example.showperformance.performance.controller;
 
+import com.example.showperformance.performance.controller.dto.DetailPerformanceResponses;
 import com.example.showperformance.performance.controller.dto.PerformanceResponses;
 import com.example.showperformance.performance.service.PerformanceService;
 import lombok.RequiredArgsConstructor;
@@ -30,5 +31,13 @@ public class PerformanceController {
     ) {
         PerformanceResponses performances = new PerformanceResponses(performanceService.areaPerformances(page, area));
         return ResponseEntity.ok(performances);
+    }
+
+    @GetMapping("/detail/performances")
+    public ResponseEntity<DetailPerformanceResponses> showDetailPerformance(
+            @RequestParam String performanceId
+    ) {
+        DetailPerformanceResponses performance = new DetailPerformanceResponses(performanceService.detailPerformance(performanceId));
+        return ResponseEntity.ok(performance);
     }
 }
