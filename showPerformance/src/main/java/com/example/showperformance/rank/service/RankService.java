@@ -1,6 +1,6 @@
 package com.example.showperformance.rank.service;
 
-import com.example.showperformance.rank.domain.Rank;
+import com.example.showperformance.rank.infrastructure.dto.Rank;
 import com.example.showperformance.rank.infrastructure.RestTemplateRankRequester;
 import java.util.List;
 import lombok.RequiredArgsConstructor;

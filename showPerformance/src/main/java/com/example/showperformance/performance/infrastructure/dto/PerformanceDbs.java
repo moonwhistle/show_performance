@@ -1,4 +1,4 @@
-package com.example.showperformance.rank.controller.dto.xml;
+package com.example.showperformance.performance.infrastructure.dto;
 
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,12 +9,12 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@XmlRootElement(name = "boxofs")
+@XmlRootElement(name = "dbs")
 @XmlAccessorType(XmlAccessType.FIELD)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class Rankboxofs {
+public class PerformanceDbs {
 
-    @XmlElement(name = "boxof")
-    private List<Rankboxof> responses;
+    @XmlElement(name = "db")
+    private List<PerformanceDb> dbList;
 }

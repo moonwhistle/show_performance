@@ -2,7 +2,7 @@ package com.example.showperformance.rank.infrastructure;
 
 import com.example.showperformance.common.util.DateUtil;
 import com.example.showperformance.common.util.XmlParser;
-import com.example.showperformance.rank.domain.Rank;
+import com.example.showperformance.rank.infrastructure.dto.Rank;
 import java.net.URI;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
