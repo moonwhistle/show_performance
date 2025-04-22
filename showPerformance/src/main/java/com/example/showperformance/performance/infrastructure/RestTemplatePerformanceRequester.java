@@ -21,9 +21,9 @@ public class RestTemplatePerformanceRequester {
 
     private final RestTemplate restTemplate;
 
-    public List<Performance> requestPerformances(String apiKey, int nowPage, String genre) {
+    public List<Performance> requestPerformancesByGenre(String apiKey, int nowPage, String genre) {
         RequestEntity<Void> requestEntity = RequestEntity
-                .get(URI.create(makeUrl(apiKey, nowPage, genre)))
+                .get(URI.create(makeGenreUrl(apiKey, nowPage, genre)))
                 .accept(MediaType.APPLICATION_XML)
                 .build();
 
@@ -34,7 +34,30 @@ public class RestTemplatePerformanceRequester {
         return XmlParser.parsePerformance(performanceData);
     }
 
-    private String makeUrl(String apiKey, int nowPage, String genre) {
+    public List<Performance> requestPerformancesByArea(String apiKey, int nowPage, String area) {
+        RequestEntity<Void> requestEntity = RequestEntity
+                .get(URI.create(makeAreaUrl(apiKey, nowPage, area)))
+                .accept(MediaType.APPLICATION_XML)
+                .build();
+
+        String performanceData = restTemplate
+                .exchange(requestEntity, String.class)
+                .getBody();
+
+        return XmlParser.parsePerformance(performanceData);
+    }
+
+    private String makeAreaUrl(String apiKey, int nowPage, String area) {
+        return DEFAULT_REQUEST_URL +
+                "?service=" + apiKey +
+                "&stdate=" + DateUtil.getToday() +
+                "&eddate=" + DateUtil.getAfterThirtyDays() +
+                "&rows=10" +
+                "&cpage=" + nowPage +
+                "&signgucode=" + area;
+    }
+
+    private String makeGenreUrl(String apiKey, int nowPage, String genre) {
 
         return DEFAULT_REQUEST_URL +
                 "?service=" + apiKey +
