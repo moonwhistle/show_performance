@@ -39,7 +39,7 @@ public class RestTemplatePerformanceRequester {
         return DEFAULT_REQUEST_URL +
                 "?service=" + apiKey +
                 "&stdate=" + DateUtil.getToday() +
-                "&eddate=" + DateUtil.getAfter30Days() +
+                "&eddate=" + DateUtil.getAfterThirtyDays() +
                 "&rows=10" +
                 "&cpage=" + nowPage +
                 "&shcate=" + genre;

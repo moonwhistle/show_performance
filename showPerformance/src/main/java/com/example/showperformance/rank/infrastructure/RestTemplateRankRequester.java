@@ -36,7 +36,7 @@ public class RestTemplateRankRequester {
 
         return DEFAULT_REQUEST_URL +
                 "?service=" + apiKey +
-                "&stdate=" + DateUtil.getToday() +
-                "&eddate=" + DateUtil.getAfter30Days();
+                "&stdate=" + DateUtil.getBeforeThirtyDays()+
+                "&eddate=" + DateUtil.getToday();
     }
 }
