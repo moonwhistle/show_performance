@@ -1,5 +1,6 @@
 package com.example.showperformance.performance.infrastructure;
 
+import com.example.showperformance.performance.infrastructure.dto.DetailPerformance;
 import com.example.showperformance.performance.infrastructure.dto.Performance;
 import com.example.showperformance.common.util.DateUtil;
 import com.example.showperformance.common.util.XmlParser;
@@ -47,7 +48,28 @@ public class RestTemplatePerformanceRequester {
         return XmlParser.parsePerformance(performanceData);
     }
 
+    public List<DetailPerformance> requestDetailPerformance(String apiKey, String performanceId) {
+        RequestEntity<Void> requestEntity = RequestEntity
+                .get(URI.create(makeDetailUrl(apiKey, performanceId)))
+                .accept(MediaType.APPLICATION_XML)
+                .build();
+
+        String performanceData = restTemplate
+                .exchange(requestEntity, String.class)
+                .getBody();
+
+        return XmlParser.parseDetailPerformance(performanceData);
+    }
+
+    private String makeDetailUrl(String apiKey, String performanceId) {
+
+        return DEFAULT_REQUEST_URL +
+                "/" + performanceId +
+                "?service=" + apiKey;
+    }
+
     private String makeAreaUrl(String apiKey, int nowPage, String area) {
+
         return DEFAULT_REQUEST_URL +
                 "?service=" + apiKey +
                 "&stdate=" + DateUtil.getToday() +
