@@ -1,8 +1,8 @@
 package com.example.showperformance.common.util;
 
-import com.example.showperformance.performance.controller.dto.PerformanceDbs;
+import com.example.showperformance.performance.controller.dto.xml.PerformanceDbs;
 import com.example.showperformance.performance.domain.Performance;
-import com.example.showperformance.rank.controller.dto.RankResponses;
+import com.example.showperformance.rank.controller.dto.xml.Rankboxofs;
 import com.example.showperformance.rank.domain.Rank;
 import java.io.StringReader;
 import java.util.List;
@@ -40,9 +40,9 @@ public class XmlParser {
 
     public static List<Rank> parseRanks(String xml) {
         try {
-            JAXBContext context = JAXBContext.newInstance(RankResponses.class);
+            JAXBContext context = JAXBContext.newInstance(Rankboxofs.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            RankResponses ranks = (RankResponses) unmarshaller.unmarshal(new StringReader(xml));
+            Rankboxofs ranks = (Rankboxofs) unmarshaller.unmarshal(new StringReader(xml));
 
             return ranks.getResponses()
                     .stream()

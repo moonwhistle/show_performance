@@ -1,7 +1,8 @@
 package com.example.showperformance.rank.service;
 
-import com.example.showperformance.rank.domain.Ranks;
+import com.example.showperformance.rank.domain.Rank;
 import com.example.showperformance.rank.infrastructure.RestTemplateRankRequester;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
@@ -17,8 +18,8 @@ public class RankService {
     private String PERFORMANCE_API_KEY;
 
     @Cacheable(value = "rank")
-    public Ranks ranks() {
-        return new Ranks(rankRequester.requestRanks(PERFORMANCE_API_KEY));
+    public List<Rank> ranks() {
+        return rankRequester.requestRanks(PERFORMANCE_API_KEY);
     }
 }
 

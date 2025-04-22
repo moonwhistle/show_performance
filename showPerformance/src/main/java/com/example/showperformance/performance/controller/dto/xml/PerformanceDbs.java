@@ -1,4 +1,4 @@
-package com.example.showperformance.performance.controller.dto;
+package com.example.showperformance.performance.controller.dto.xml;
 
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
