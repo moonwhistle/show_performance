@@ -1,4 +1,4 @@
-package com.example.showperformance.rank.controller.dto;
+package com.example.showperformance.rank.controller.dto.xml;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @XmlAccessorType(XmlAccessType.FIELD)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class RankResponse {
+public class Rankboxof {
 
     private String prfplcnm;
     private int seatcnt;
