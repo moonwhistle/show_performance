@@ -1,4 +1,4 @@
-package com.example.showperformance.performance.infrastructure.util;
+package com.example.showperformance.common.util;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
