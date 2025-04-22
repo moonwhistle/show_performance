@@ -24,7 +24,7 @@ public class PerformanceService {
             key = "#genre + '::' + #page",
             unless = "#result == null || #result.isEmpty()"
     )
-    public List<Performance> performance(int page, String genre) {
+    public List<Performance> performances(int page, String genre) {
         return performanceRequester.requestPerformances(
                 PERFORMANCE_API_KEY,
                 page,
