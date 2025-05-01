@@ -1,4 +1,4 @@
-package com.example.showperformance.exception.dto;
+package com.example.showperformance.global.exception.dto;
 
 public record ErrorResponse(
         String customCode,
