@@ -20,7 +20,7 @@ public class PerformanceController {
             @RequestParam String genre,
             @RequestParam int page
     ) {
-        PerformanceResponses performances =  new PerformanceResponses(performanceService.genrePerformances(page, genre));
+        PerformanceResponses performances = new PerformanceResponses(performanceService.genrePerformances(page, genre));
         return ResponseEntity.ok(performances);
     }
 
@@ -37,7 +37,8 @@ public class PerformanceController {
     public ResponseEntity<DetailPerformanceResponses> showDetailPerformance(
             @RequestParam String performanceId
     ) {
-        DetailPerformanceResponses performance = new DetailPerformanceResponses(performanceService.detailPerformance(performanceId));
+        DetailPerformanceResponses performance = new DetailPerformanceResponses(
+                performanceService.detailPerformance(performanceId));
         return ResponseEntity.ok(performance);
     }
 }

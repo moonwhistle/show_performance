@@ -39,6 +39,13 @@ dependencies {
 
     // jwt
     implementation 'com.auth0:java-jwt:4.2.1'
+
+    // Oauth2
+    implementation "org.springframework.boot:spring-boot-starter-oauth2-client"
+
+    // mysql
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.mysql:mysql-connector-j'
 }
 
 tasks.named('test') {
