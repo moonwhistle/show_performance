@@ -2,6 +2,7 @@ package com.example.showperformance.common.util;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class DateUtil {
 
@@ -22,5 +23,13 @@ public class DateUtil {
         return LocalDate.now()
                 .minusDays(ONE_MONTH)
                 .format(FORMATTER);
+    }
+
+    public static Date issuedDate() {
+        return new Date(System.currentTimeMillis());
+    }
+
+    public static Date expiredDate(long expirationPeriod) {
+        return new Date(System.currentTimeMillis() + expirationPeriod * 1000L); //2시간
     }
 }
