@@ -3,7 +3,7 @@ package com.example.showperformance.common.util;
 import com.example.showperformance.performance.infrastructure.dto.DetailPerformance;
 import com.example.showperformance.performance.infrastructure.dto.DetailPerformanceDbs;
 import com.example.showperformance.performance.infrastructure.dto.PerformanceDbs;
-import com.example.showperformance.performance.infrastructure.dto.Performance;
+import com.example.showperformance.performance.domain.Performance;
 import com.example.showperformance.rank.infrastructure.dto.Rankboxofs;
 import com.example.showperformance.rank.infrastructure.dto.Rank;
 import java.io.StringReader;

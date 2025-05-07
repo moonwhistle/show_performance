@@ -3,7 +3,7 @@ package com.example.showperformance.performance.service;
 import com.example.showperformance.performance.constant.AreaCode;
 import com.example.showperformance.performance.constant.GenreCode;
 import com.example.showperformance.performance.infrastructure.dto.DetailPerformance;
-import com.example.showperformance.performance.infrastructure.dto.Performance;
+import com.example.showperformance.performance.domain.Performance;
 import com.example.showperformance.performance.infrastructure.RestTemplatePerformanceRequester;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
