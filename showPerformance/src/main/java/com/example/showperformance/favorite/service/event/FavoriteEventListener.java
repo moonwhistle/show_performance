@@ -1,5 +1,6 @@
 package com.example.showperformance.favorite.service.event;
 
+import com.example.showperformance.performance.domain.Performance;
 import com.example.showperformance.performance.service.PerformanceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
@@ -14,7 +15,7 @@ public class FavoriteEventListener {
 
     @Transactional
     @EventListener
-    public void handleFavoriteEvent(PerformanceSaveEvent event) {
-        performanceService.save(event.performance());
+    public Performance handleFavoriteEvent(PerformanceSaveEvent event) {
+        return performanceService.saveIfNotExist(event.performance());
     }
 }

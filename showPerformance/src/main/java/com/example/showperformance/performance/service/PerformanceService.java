@@ -56,9 +56,8 @@ public class PerformanceService {
         );
     }
 
-    public void save(Performance performance) {
-        if(!performanceRepository.existsByPerformId(performance.getPerformId())) {
-            performanceRepository.save(performance);
-        }
+    public Performance saveIfNotExist(Performance performance) {
+        return performanceRepository.findByPerformId(performance.getPerformId())
+                .orElseGet(() -> performanceRepository.save(performance));
     }
 }
