@@ -6,7 +6,8 @@ import org.springframework.http.HttpStatus;
 public enum GlobalErrorCode implements BaseErrorCode {
     TOKEN_VERIFICATION_EXCEPTION(HttpStatus.NOT_FOUND, "T001", "토큰을 확인할 수 없습니다."),
     TOKEN_EXPIRATION_EXCEPTION(HttpStatus.CONFLICT, "T002", "토큰이 만료되었습니다."),
-    TOKEN_DECODED_EXCEPTION(HttpStatus.CONFLICT, "T003", "토큰을 확인할 수 없습니다.");
+    TOKEN_DECODED_EXCEPTION(HttpStatus.CONFLICT, "T003", "토큰을 확인할 수 없습니다."),
+    TOKEN_NOT_FOUND_EXCEPTION(HttpStatus.NOT_FOUND, "T004", "토큰이 존재하지 않습니다.");
 
     private final HttpStatus httpStatus;
     private final String customCode;

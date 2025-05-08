@@ -1,7 +1,7 @@
 package com.example.showperformance.performance.infrastructure;
 
 import com.example.showperformance.performance.infrastructure.dto.DetailPerformance;
-import com.example.showperformance.performance.infrastructure.dto.Performance;
+import com.example.showperformance.performance.domain.Performance;
 import com.example.showperformance.common.util.DateUtil;
 import com.example.showperformance.common.util.XmlParser;
 import java.net.URI;
