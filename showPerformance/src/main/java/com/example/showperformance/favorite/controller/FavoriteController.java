@@ -22,6 +22,12 @@ public class FavoriteController {
             @RequestBody FavoriteRequest request,
             @Auth Long memberId
     ) {
+        favoriteService.performanceFavorite(
+                memberId, performanceId,
+                request.name(), request.area(),
+                request.genreName(), request.startDate(),
+                request.endDate(), request.posterUrl()
+        );
         return ResponseEntity.ok()
                 .build();
     }

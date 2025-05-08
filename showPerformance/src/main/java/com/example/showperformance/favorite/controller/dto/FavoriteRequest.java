@@ -1,7 +1,7 @@
 package com.example.showperformance.favorite.controller.dto;
 
 public record FavoriteRequest(
-        String perform,
+        String name,
         String area,
         String genreName,
         String startDate,

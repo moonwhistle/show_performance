@@ -33,4 +33,9 @@ public class Favorite {
     @JoinColumn
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Performance performance;
+
+    public Favorite(Member member, Performance performance) {
+        this.member = member;
+        this.performance = performance;
+    }
 }
