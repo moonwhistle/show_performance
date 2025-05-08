@@ -5,6 +5,7 @@ import com.example.showperformance.performance.constant.GenreCode;
 import com.example.showperformance.performance.infrastructure.dto.DetailPerformance;
 import com.example.showperformance.performance.domain.Performance;
 import com.example.showperformance.performance.infrastructure.RestTemplatePerformanceRequester;
+import com.example.showperformance.performance.repository.PerformanceRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 public class PerformanceService {
 
     private final RestTemplatePerformanceRequester performanceRequester;
+    private final PerformanceRepository performanceRepository;
 
     @Value("${api_key}")
     private String PERFORMANCE_API_KEY;
@@ -52,5 +54,11 @@ public class PerformanceService {
                 PERFORMANCE_API_KEY,
                 performanceId
         );
+    }
+
+    public void save(Performance performance) {
+        if(!performanceRepository.existsByPerformId(performance.getPerformId())) {
+            performanceRepository.save(performance);
+        }
     }
 }
