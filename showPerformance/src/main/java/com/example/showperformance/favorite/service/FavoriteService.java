@@ -7,6 +7,10 @@ import com.example.showperformance.member.service.MemberService;
 import com.example.showperformance.performance.domain.Performance;
 import com.example.showperformance.performance.service.PerformanceService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Transactional
 public class FavoriteService {
+
+    private static final String PAGE_SORT_DELIMITER = "id";
 
     private final FavoriteRepository favoriteRepository;
     private final PerformanceService performanceService;
@@ -26,6 +32,11 @@ public class FavoriteService {
         );
 
         deleteOrAddFavorite(member, performance);
+    }
+
+    public Page<Favorite> showMemberFavoritePerformance(Long memberId, int page, int size) {
+        Pageable favoritePageable = PageRequest.of(page, size, Sort.by(PAGE_SORT_DELIMITER).descending());
+        return favoriteRepository.findAllByMemberId(memberId, favoritePageable);
     }
 
     private void deleteOrAddFavorite(Member member, Performance performance) {
