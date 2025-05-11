@@ -32,7 +32,6 @@ public class AuthArgumentResolver implements HandlerMethodArgumentResolver {
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
                                   NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         HttpServletRequest request = (HttpServletRequest) webRequest.getNativeRequest();
-        System.out.println(request);
         String tokenHeader = request.getHeader(TOKEN_HEADER_NAME);
         validateToken(tokenHeader);
         String token = tokenHeader.substring(TOKEN_BODY_DELIMITER);

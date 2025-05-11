@@ -25,18 +25,13 @@ public class FavoriteService {
                 new Performance(performanceId, name, area, genreName, startDate, endDate, posterUrl)
         );
 
-        deleteFavorite(member, performance);
-        addFavorite(member, performance);
+        deleteOrAddFavorite(member, performance);
     }
 
-    private void deleteFavorite(Member member, Performance performance) {
+    private void deleteOrAddFavorite(Member member, Performance performance) {
         if(favoriteRepository.existsByMemberAndPerformance(member, performance)) {
             favoriteRepository.deleteByMemberAndPerformance(member, performance);
-        }
-    }
-
-    private void addFavorite(Member member, Performance performance) {
-        if(!favoriteRepository.existsByMemberAndPerformance(member, performance)) {
+        } else {
             favoriteRepository.save(new Favorite(member, performance));
         }
     }
